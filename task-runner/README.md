@@ -1,7 +1,12 @@
 # Using Gulp to build CSS and JS in Visual Studio
 At WSOL, CSS and JavaScript is combined and minified using Gulp. These generated files are not tracked in the Git repositories, so in order to work locally developers must generate these files as needed from the raw source files that are tracked in version control. This process is outlined below.
 
-1. Open the project in Visual Studio.
+1. Open the solution file in Visual Studio.
+1. For first time setups ensure the following:
+    * Select the VS project in Solution explorer and ensure Show All Files is enabled (icon in blue box)![Show All Files](https://raw.githubusercontent.com/websolutions/static-files/master/task-runner/solution-explorer-show-all-files.png)
+    * If the node_modules folder (should never be included in the csproj) is not present, open the package.json and save the file to kickoff the NPM install process.
+    * Output in the NPM install process can be seen in the output window using the Bower/NPM dropdown option.![Bower NPM](https://raw.githubusercontent.com/websolutions/static-files/master/task-runner/installing-node-modules.png)
+    * Select the refresh icon in the top left of the Task Runner Explorer window.
 1. Open the Task Runner Explorer Window
 	* Select View -> Other Windows -> Task Runner Explorer
 	![VS Image](https://raw.githubusercontent.com/websolutions/static-files/master/task-runner/task-runner-view-window.png)
@@ -100,3 +105,6 @@ The config file for CSS and JavaScript source files is named **gulpconfig.json**
 
 ## Watch Task
 The watch task is used to update the compiled files generated in the default task as the source files change. This task is mainly enabled by designers as they work locally.
+
+## Troubleshooting
+If the task runner explorer window looks like the below image, try deleting the project's node_modules folder if it exists and run the first time setup instructions as noted previously. ![Failed Task Runner](https://raw.githubusercontent.com/websolutions/static-files/master/task-runner/task-runner-node-missing.png)
